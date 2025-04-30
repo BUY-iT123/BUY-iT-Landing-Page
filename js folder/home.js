@@ -1,12 +1,61 @@
 export const homeinitScreen=()=>{
 const homeScreen=document.querySelector('#home-screen');
 const eroSec=homeScreen.querySelector('.ero-sec');
+const eroHeaderText=eroSec.querySelector('h1');
+const weAre=homeScreen.querySelector('.who-we-are-sec')
+const why=homeScreen.querySelector('.why-you-should-join')
+const stats=homeScreen.querySelector('.BUYiT-stats')
+const testi=homeScreen.querySelector('.testimonials')
+const sponsored=homeScreen.querySelector('.sponsored')
+const FAQs=homeScreen.querySelector('#FAQ')
 const header=homeScreen.querySelector('header');
 const icon=header.querySelector('#icon');
 const overlay=homeScreen.querySelector('.overlay');
 const showHide=homeScreen.querySelector('.show-side');
+const store=showHide.querySelector('.things p');
+const back=document.createElement('p');
+back.addEventListener('click', ()=>{
+  products.style.display='none';
+  eroHeaderText.style.display='block';
+  weAre.style.display='flex';
+  eroSec.style.backgroundColor='#19C463';
+  why.style.display='flex';
+  stats.style.display='flex';
+  testi.style.display='none';
+  sponsored.style.display='flex';
+  startSelling.style.display='flex';
+  FAQs.style.display='flex';
+  moreStore.style.display='flex';
+})
+store.addEventListener('click', ()=>{
+  overlay.style.display='none'
+  showHide.style.display='none'
+  products.style.display='flex';
+  window.location.href='#product-own';
+  eroSec.style.backgroundColor='transparent';
+  header.style.backgroundColor='#19C463'
+  eroHeaderText.style.display='none';
+  weAre.style.display='none';
+  why.style.display='none';
+  stats.style.display='none';
+  testi.style.display='none';
+  sponsored.style.display='none';
+  startSelling.style.display='none';
+  FAQs.style.display='none';
+  moreStore.style.display='none';
+  homeScreen.style.overflow='visible'
+  back.innerHTML='Back';
+  products.style.display='flex'
+  products.style.marginTop='8px'
+  products.style.flexDirection='column-reverse'
+  const fitted=products.querySelector('.all-of-BUY-iT-products .sponsored');
+  fitted.style.marginTop='4px'
+  products.append(back)
+  back.style.padding='8px'
+})
 const showHideCancel=showHide.querySelector('.img-nd-cancel i');
 const startSelling=homeScreen.querySelector('.start-selling');
+const moreStore=homeScreen.querySelector('.more-product')
 showHideCancel.addEventListener('click', ()=>{
   overlay.style.display='none';
   showHide.style.display='none';
@@ -16,6 +65,24 @@ const navSide=header.querySelector('nav ul #home');
 const navSideTwo=header.querySelector('nav ul #about');
 const navSideThree=header.querySelector('nav ul #faq');
 const navSideFour=header.querySelector('nav ul #contact');
+const navSideFive=header.querySelector('nav ul #store');
+const products=homeScreen.querySelector('#products-own');
+
+navSideFive.addEventListener('click', ()=>{
+products.style.display='block';
+window.location.href='#product-own';
+eroSec.style.backgroundColor='transparent';
+header.style.backgroundColor='#19C463'
+eroHeaderText.style.display='none';
+weAre.style.display='none';
+why.style.display='none';
+stats.style.display='none';
+testi.style.display='none';
+sponsored.style.display='none';
+startSelling.style.display='none';
+FAQs.style.display='none';
+moreStore.style.display='none';
+})
 
 navSide.addEventListener('click', ()=>{
   window.location.href='index.html';
