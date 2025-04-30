@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 :root{
   --BACKGROUND-COLOR: #ffffff;
   --FONT-COLOR: #000000;
@@ -19,6 +23,10 @@ a{
   color: var(--FONT-COLOR);
   cursor: pointer;
   text-decoration: none;
+}
+
+.hide{
+  display: none;
 }
 
 #home-screen{
@@ -205,7 +213,7 @@ width: 65px;
   display: block;
 }
 
-#home-screen .sponsored{
+.sponsored{
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -214,19 +222,19 @@ width: 65px;
   padding: 0 8px;
 }
 
-#home-screen .sponsored h4{
+.sponsored h4{
   padding: 4px;
   text-align: center;
   font-size: clamp(1.5rem, 1vw, 1.8rem);
 }
 
-#home-screen .sponsored .products{
+.sponsored .products{
   display: flex;
   flex-wrap: wrap;
   row-gap: 61px;
 }
 
-#home-screen .sponsored .products a{
+.sponsored .products a{
   width: 50%;
 }
 
@@ -235,26 +243,26 @@ width: 65px;
   padding: 12px;
 }
 
-#home-screen .sponsored .products a .product-page-st .product{
+.sponsored .products a .product-page-st .product{
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-#home-screen .sponsored .products a .product-page-st .product .image-sec{
+.sponsored .products a .product-page-st .product .image-sec{
   background-color: #AAAAAA;
   border-radius: 20px;
   width: 100%;
   overflow: hidden;
 }
 
-#home-screen .sponsored .products a .product-page-st .product .image-sec img{
+.sponsored .products a .product-page-st .product .image-sec img{
   width: 100%;
   aspect-ratio: 1;
 }
 
-#home-screen .sponsored .products a .product-page-st .product .product-name-nd-price{
+.sponsored .products a .product-page-st .product .product-name-nd-price{
   color: var(--FONT-COLOR);
 }
 
@@ -387,11 +395,30 @@ width: 65px;
   font-weight: bold;
 }
 
+#home-screen #products-own{
+  display: none;
+}
+
+#home-screen #products-own .all-of-BUY-iT-products{
+  display: flex;
+  flex-direction: column;
+}
+
+#home-screen #products-own .all-of-BUY-iT-products .sponsored .product-name-nd-see-all{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 @media screen and (min-width: 600px){
   *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+
+  html{
+    scroll-behavior: smooth;
   }
   
   :root{
