@@ -8,6 +8,10 @@ html{
   scroll-behavior: smooth;
 }
 
+button{
+  cursor: pointer;
+}
+
 :root{
   --BACKGROUND-COLOR: #ffffff;
   --FONT-COLOR: #000000;
@@ -234,11 +238,11 @@ width: 65px;
   row-gap: 61px;
 }
 
-.sponsored .products a{
+.sponsored .products .a{
   width: 50%;
 }
 
-#home-screen .sponsored .products a .product-page-st{
+#home-screen .sponsored .products .a .product-page-st{
   width: 100%;
   padding: 12px;
 }
@@ -250,20 +254,31 @@ width: 65px;
   gap: 12px;
 }
 
-.sponsored .products a .product-page-st .product .image-sec{
+.sponsored .products .a .product-page-st .product .image-sec{
   background-color: #AAAAAA;
   border-radius: 20px;
   width: 100%;
   overflow: hidden;
 }
 
-.sponsored .products a .product-page-st .product .image-sec img{
+.sponsored .products .a .product-page-st .product .image-sec img{
   width: 100%;
   aspect-ratio: 1;
 }
 
-.sponsored .products a .product-page-st .product .product-name-nd-price{
+.sponsored .products .a .product-page-st .product .product-name-nd-price{
   color: var(--FONT-COLOR);
+}
+
+.sponsored .products .a .product-page-st .product .product-name-nd-price a button{
+  color: var(--BACKGROUND-COLOR);
+  background-color: var(--MAIN-COLOR);
+  border-radius: 4px;
+  border: none;
+  font-size: clamp(1rem, 1vw, 1.5rem);
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
 }
 
 #home-screen .more-product{
