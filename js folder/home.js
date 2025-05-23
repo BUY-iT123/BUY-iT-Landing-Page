@@ -215,18 +215,6 @@ FAQnine.addEventListener('click', ()=>{
   }
 });
 
-const FAQtenth=homeScreen.querySelector('#FAQ .ask-nd-answer-question .tnth .question #icon')
-const txtUndertenth=homeScreen.querySelector('#FAQ .ask-nd-answer-question .tnth .txt');
-FAQtenth.addEventListener('click', ()=>{
-  if(FAQtenth.classList.contains('ri-add-fill')){
-    FAQtenth.classList.replace('ri-add-fill', 'ri-subtract-fill');
-    txtUndertenth.style.display='block';
-  }else{
-    FAQtenth.classList.replace('ri-subtract-fill', 'ri-add-fill');
-    txtUndertenth.style.display='none';
-  }
-});
-
 icon.addEventListener('click', ()=>{
 overlay.style.display='block';
 showHide.style.display='block';
