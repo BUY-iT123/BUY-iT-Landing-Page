@@ -234,35 +234,35 @@ width: 65px;
   row-gap: 61px;
 }
 
-.sponsored .products a{
+.sponsored .products .a{
   width: 50%;
 }
 
-#home-screen .sponsored .products a .product-page-st{
+#home-screen .sponsored .products .a .product-page-st{
   width: 100%;
   padding: 12px;
 }
 
-.sponsored .products a .product-page-st .product{
+.sponsored .products .a .product-page-st .product{
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.sponsored .products a .product-page-st .product .image-sec{
+.sponsored .products .a .product-page-st .product .image-sec{
   background-color: #AAAAAA;
   border-radius: 20px;
   width: 100%;
   overflow: hidden;
 }
 
-.sponsored .products a .product-page-st .product .image-sec img{
+.sponsored .products .a .product-page-st .product .image-sec img{
   width: 100%;
   aspect-ratio: 1;
 }
 
-.sponsored .products a .product-page-st .product .product-name-nd-price{
+.sponsored .products .a .product-page-st .product .product-name-nd-price{
   color: var(--FONT-COLOR);
 }
 
