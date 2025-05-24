@@ -483,6 +483,50 @@ width: 65px;
   font-weight: 600;
 }
 
+/* About Screen */
+#about-page{
+  font-family: Montserrat;
+}
+
+#about-page header{
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 2px hsla(0, 0%, 0%, 0.253);
+  padding: 8px;
+  margin-bottom: 8px;
+  background-color: var(--BACKGROUND-COLOR);
+  position: sticky;
+  top: 0;
+  gap: 8px;
+}
+
+#about-page header a i{
+  font-size: clamp(1.2rem, 1vw, 1.8rem);
+}
+
+#about-page header h3{
+  font-size: clamp(1.2rem, 1vw, 1.8rem);
+  padding: 2px;
+  text-align: left;
+}
+
+#about-page main{
+  margin-bottom: 20px;
+}
+
+#about-page main .con{
+  display: flex;
+  padding: 8px;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#about-page main .con p,ul li{
+  font-size: clamp(1rem, 1vw, 1.5rem);
+  font-weight: 600;
+  line-height: 24px;
+}
+
 @media screen and (min-width: 600px){
   *{
     margin: 0;
@@ -629,4 +673,61 @@ width: 65px;
     justify-content: start;
     gap: 20px;
   }
+
+  #policy-page{
+  font-family: Montserrat;
+}
+
+#policy-page header{
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 2px hsla(0, 0%, 0%, 0.253);
+  padding: 60px;
+  margin-bottom: 8px;
+  background-color: var(--BACKGROUND-COLOR);
+  position: sticky;
+  top: 0;
+  gap: 8px;
+}
+
+#policy-page header a i{
+  font-size: clamp(1.2rem, 1vw, 1.8rem);
+}
+
+#policy-page header h3{
+  font-size: clamp(1.2rem, 1vw, 1.8rem);
+  padding: 2px;
+  text-align: left;
+}
+
+#policy-page main{
+  margin-bottom: 20px;
+}
+
+#policy-page main .con{
+  display: flex;
+  padding: 60px;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#policy-page main .con .policy-head-nd-body{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#policy-page main .con .policy-head-nd-body h4{
+  padding: 4px;
+  font-size: clamp(1.2rem, 1vw, 1.5rem);
+  text-align: left;
+}
+
+#policy-page main .con .policy-head-nd-body p{
+  padding: 4px;
+  font-size: clamp(1rem, 1vw, 1.5rem);
+  text-align: left;
+  line-height: 26px;
+  font-weight: 600;
+}
 }
