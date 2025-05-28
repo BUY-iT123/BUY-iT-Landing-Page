@@ -685,6 +685,7 @@ width: 65px;
 
   #policy-page{
   font-family: Montserrat;
+  background-color: var(--MAIN-BACKGROUND-COLOR);
 }
 
 #policy-page header{
