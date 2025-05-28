@@ -211,7 +211,7 @@ width: 65px;
 #home-screen .why-you-should-join .reasons{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 4px;
   padding: 8px;
 }
 
