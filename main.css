@@ -38,7 +38,7 @@ font-family: Montserrat;
 }
 
 #home-screen .ero-sec{
-background-color: var(--MAIN-COLOR);
+background-color: var(--MAIN-BACKGROUND-COLOR);
 width: 100%;
 height: fit-content;
 }
@@ -240,6 +240,8 @@ width: 65px;
 
 .sponsored .products .a{
   width: 50%;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 #home-screen .sponsored .products .a .product-page-st{
@@ -542,6 +544,7 @@ width: 65px;
     --BACKGROUND-COLOR: #ffffff;
     --FONT-COLOR: #000000;
     --MAIN-COLOR:#19C463;
+    --MAIN-BACKGROUND-COLOR: #F1F3F2;
   }
   
   li{
