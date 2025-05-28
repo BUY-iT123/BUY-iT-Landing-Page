@@ -17,6 +17,7 @@ button{
   --FONT-COLOR: #000000;
   --MAIN-COLOR:#19C463;
   --ICON-COLOR: #FFFF00;
+  --MAIN-BACKGROUND-COLOR: #AAAAAA;
 }
 
 li{
@@ -35,6 +36,7 @@ a{
 
 #home-screen{
 font-family: Montserrat;
+background-color: var(--MAIN-BACKGROUND-COLOR);
 }
 
 #home-screen .ero-sec{
@@ -430,6 +432,7 @@ width: 65px;
 /* Policy Screen Section */
 #policy-page{
   font-family: Montserrat;
+  background-color: var(--MAIN-BACKGROUND-COLOR);
 }
 
 #policy-page header{
@@ -488,6 +491,7 @@ width: 65px;
 /* About Screen */
 #about-page{
   font-family: Montserrat;
+  background-color: var(--MAIN-BACKGROUND-COLOR);
 }
 
 #about-page header{
@@ -544,7 +548,7 @@ width: 65px;
     --BACKGROUND-COLOR: #ffffff;
     --FONT-COLOR: #000000;
     --MAIN-COLOR:#19C463;
-    --MAIN-BACKGROUND-COLOR: #AAAAAA;
+    --MAIN-BACKGROUND-COLOR: #F1F3F2;
   }
   
   li{
