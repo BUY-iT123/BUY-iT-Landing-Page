@@ -14,6 +14,55 @@ const overlay=homeScreen.querySelector('.overlay');
 const showHide=homeScreen.querySelector('.show-side');
 const store=showHide.querySelector('.things p');
 const back=document.createElement('p');
+const allProducts = document.querySelectorAll('.a');
+allProducts.forEach((clicks) => {
+  clicks.addEventListener('click', async (e) => {
+    const product = await e.target.closest('.a');
+    const img = await product.querySelector('img');
+    const name = await product.querySelector('#product-name');
+    const price = product.querySelector('#product-price');
+
+    //Checking if There is an image
+    console.log(img.src);
+    console.log(name);
+    console.log(price);
+
+    const confirmProduct = await document.querySelector('.view-product-that-i-want-to-buy');
+    const appendProductPic = confirmProduct.querySelector('.view-product-img-name-price .where-img-view-will-be');
+    const productName = confirmProduct.querySelector('.view-product-img-name-price .product-price-nd-name #name');
+    const productPrice = confirmProduct.querySelector('.view-product-img-name-price .product-price-nd-name #price');
+
+    //Log to see if it exist
+    console.log(confirmProduct)
+    console.log(appendProductPic)
+    console.log(productName)
+    console.log(productPrice)
+
+    //Continue Display For View Product
+    appendProductPic.innerHTML = '';
+
+    // Create a new image element
+    const newImg = document.createElement('img');
+    newImg.src = img.src;
+    newImg.alt = 'Selected Product';
+
+    // Append the new image
+    appendProductPic.append(newImg);
+
+    //Set Price And Name Of Product
+    productName.textContent = name.textContent;
+    productPrice.textContent = price.textContent;
+    
+    //Now Display For the Main One
+    confirmProduct.style.display = 'block';
+
+     //Now Display None the Main One
+    const displayNone = confirmProduct.querySelector('header .ri-arrow-left-line').addEventListener('click', () =>{
+      confirmProduct.style.display =  'none';
+    })
+  })
+});
+
 back.addEventListener('click', ()=>{
   products.style.display='none';
   eroHeaderText.style.display='block';
