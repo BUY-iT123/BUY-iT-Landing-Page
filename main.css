@@ -244,6 +244,7 @@ width: 65px;
   width: 50%;
   border-radius: 12px;
   overflow: hidden;
+  padding: 4px;
 }
 
 #home-screen .sponsored .products .a .product-page-st{
