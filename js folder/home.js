@@ -21,45 +21,66 @@ allProducts.forEach((clicks) => {
     const img = await product.querySelector('img');
     const name = await product.querySelector('#product-name');
     const price = product.querySelector('#product-price');
+    const productID = product.querySelector('#id');
+    const imageSide = product.querySelector('.image-sec').addEventListener('click', async () => {
+      console.log(img.src);
+      console.log(name);
+      console.log(price);
 
-    //Checking if There is an image
-    console.log(img.src);
-    console.log(name);
-    console.log(price);
+      const confirmProduct = await document.querySelector('.view-product-that-i-want-to-buy');
+      const appendProductPic = confirmProduct.querySelector('.view-product-img-name-price .where-img-view-will-be');
+      const productName = confirmProduct.querySelector('.view-product-img-name-price .product-price-nd-name #name');
+      const productPrice = confirmProduct.querySelector('.view-product-img-name-price .product-price-nd-name #price');
+      const productId = confirmProduct.querySelector('.view-product-img-name-price .product-price-nd-name #ids');
+      //Side For Sending Message
 
-    const confirmProduct = await document.querySelector('.view-product-that-i-want-to-buy');
-    const appendProductPic = confirmProduct.querySelector('.view-product-img-name-price .where-img-view-will-be');
-    const productName = confirmProduct.querySelector('.view-product-img-name-price .product-price-nd-name #name');
-    const productPrice = confirmProduct.querySelector('.view-product-img-name-price .product-price-nd-name #price');
+      const buttonView = confirmProduct.querySelector('button');
+      buttonView.addEventListener('click', () => {
+        const iD = productId.textContent;
+        const Name = productName.textContent;
+        const Price = productPrice.textContent;
 
-    //Log to see if it exist
-    console.log(confirmProduct)
-    console.log(appendProductPic)
-    console.log(productName)
-    console.log(productPrice)
+        console.log(iD)
 
-    //Continue Display For View Product
-    appendProductPic.innerHTML = '';
+        window.location.href=`https://wa.me/2349121440680?text=HI%20I%20am%20interested%20in%20${encodeURIComponent(iD)}-${encodeURIComponent(Name)}-${encodeURIComponent(Price)}`
+      })
 
-    // Create a new image element
-    const newImg = document.createElement('img');
-    newImg.src = img.src;
-    newImg.alt = 'Selected Product';
+      //Log to see if it exist
+      console.log(confirmProduct)
+      console.log(appendProductPic)
+      console.log(productName)
+      console.log(productPrice)
 
-    // Append the new image
-    appendProductPic.append(newImg);
+      //Continue Display For View Product
+      appendProductPic.innerHTML = '';
 
-    //Set Price And Name Of Product
-    productName.textContent = name.textContent;
-    productPrice.textContent = price.textContent;
+      // Create a new image element
+      const newImg = document.createElement('img');
+      newImg.src = img.src;
+      newImg.alt = 'Selected Product';
+
+      // Append the new image
+      appendProductPic.append(newImg);
+
+      //Set Price And Name Of Product
+      productName.textContent = name.textContent;
+      productPrice.textContent = price.textContent;
+      productId.textContent = productID.textContent;
     
-    //Now Display For the Main One
-    confirmProduct.style.display = 'block';
+      //Now Display For the Main One
+      confirmProduct.style.display = 'block';
 
-     //Now Display None the Main One
-    const displayNone = confirmProduct.querySelector('header .ri-arrow-left-line').addEventListener('click', () =>{
+      //Now Display None the Main One
+      const displayNone = confirmProduct.querySelector('header .ri-arrow-left-line').addEventListener('click', () =>{
       confirmProduct.style.display =  'none';
     })
+    });
+
+
+
+
+    //Checking if There is an image
+    
   })
 });
 
@@ -192,17 +213,17 @@ FAQthree.addEventListener('click', ()=>{
   }
 });
 
-const FAQfour=homeScreen.querySelector('#FAQ .ask-nd-answer-question .fort .question #icon')
-const txtUnderfour=homeScreen.querySelector('#FAQ .ask-nd-answer-question .fort .txt');
-FAQfour.addEventListener('click', ()=>{
-  if(FAQfour.classList.contains('ri-add-fill')){
-    FAQfour.classList.replace('ri-add-fill', 'ri-subtract-fill');
-    txtUnderfour.style.display='block';
-  }else{
-    FAQfour.classList.replace('ri-subtract-fill', 'ri-add-fill');
-    txtUnderfour.style.display='none';
-  }
-});
+// const FAQfour=homeScreen.querySelector('#FAQ .ask-nd-answer-question .fort .question #icon')
+// const txtUnderfour=homeScreen.querySelector('#FAQ .ask-nd-answer-question .fort .txt');
+// FAQfour.addEventListener('click', ()=>{
+//   if(FAQfour.classList.contains('ri-add-fill')){
+//     FAQfour.classList.replace('ri-add-fill', 'ri-subtract-fill');
+//     txtUnderfour.style.display='block';
+//   }else{
+//     FAQfour.classList.replace('ri-subtract-fill', 'ri-add-fill');
+//     txtUnderfour.style.display='none';
+//   }
+// });
 
 const FAQfive=homeScreen.querySelector('#FAQ .ask-nd-answer-question .fit .question #icon')
 const txtUnderfive=homeScreen.querySelector('#FAQ .ask-nd-answer-question .fit .txt');
@@ -216,17 +237,17 @@ FAQfive.addEventListener('click', ()=>{
   }
 });
 
-const FAQsix=homeScreen.querySelector('#FAQ .ask-nd-answer-question .sixt .question #icon')
-const txtUndersix=homeScreen.querySelector('#FAQ .ask-nd-answer-question .sixt .txt');
-FAQsix.addEventListener('click', ()=>{
-  if(FAQsix.classList.contains('ri-add-fill')){
-    FAQsix.classList.replace('ri-add-fill', 'ri-subtract-fill');
-    txtUndersix.style.display='block';
-  }else{
-    FAQsix.classList.replace('ri-subtract-fill', 'ri-add-fill');
-    txtUndersix.style.display='none';
-  }
-});
+// const FAQsix=homeScreen.querySelector('#FAQ .ask-nd-answer-question .sixt .question #icon')
+// const txtUndersix=homeScreen.querySelector('#FAQ .ask-nd-answer-question .sixt .txt');
+// FAQsix.addEventListener('click', ()=>{
+//   if(FAQsix.classList.contains('ri-add-fill')){
+//     FAQsix.classList.replace('ri-add-fill', 'ri-subtract-fill');
+//     txtUndersix.style.display='block';
+//   }else{
+//     FAQsix.classList.replace('ri-subtract-fill', 'ri-add-fill');
+//     txtUndersix.style.display='none';
+//   }
+// });
 
 const FAQseven=homeScreen.querySelector('#FAQ .ask-nd-answer-question .sevn .question #icon')
 const txtUnderseven=homeScreen.querySelector('#FAQ .ask-nd-answer-question .sevn .txt');

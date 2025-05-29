@@ -155,18 +155,34 @@ width: 65px;
   font-size: clamp(2rem, 1vw, 2.2rem);
 }
 
-#home-screen .ero-sec h1{
-  width: 100%;
-  padding: 8px;
-  text-align: center;
-  font-weight: bold;
-  font-size: clamp(2.5rem, 1vw, 2.6rem);
-  margin: 10px auto;
-}
-
-#home-screen .ero-sec h1 span{
-  color: var(--BACKGROUND-COLOR);
-}
+  #home-screen .ero-sec .overflow-own{
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 8px;
+  }
+  
+  #home-screen .ero-sec .overflow-own::-webkit-scrollbar{
+    display: none;
+  }
+  
+  #home-screen .ero-sec .overflow-own .where-img-will-flow-flex{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  #home-screen .ero-sec .overflow-own .where-img-will-flow-flex .img-sects{
+    width: 70%;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 50%;
+    flex-shrink: 0;
+  }
+  
+  #home-screen .ero-sec .overflow-own .where-img-will-flow-flex .img-sects img{
+    width: 100%;
+    aspect-ratio: 1;
+  }
 
 #home-screen .who-we-are-sec{
   width: 100%;
@@ -327,7 +343,8 @@ width: 65px;
 .sponsored .products{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  row-gap: 6px;
+  column-gap: 6px;
 }
 
 .sponsored .products .a{
@@ -369,7 +386,7 @@ width: 65px;
   gap: 8px;
 }
 
-.sponsored .products .a .product-page-st .product .product-name-nd-price a button{
+.sponsored .products .a .product-page-st .product .product-name-nd-price button{
   color: var(--BACKGROUND-COLOR);
   background-color: var(--MAIN-COLOR);
   border-radius: 4px;
@@ -694,13 +711,7 @@ width: 65px;
     display: none;
   }
   
-  #home-screen .ero-sec h1{
-    padding: 4px 150px;
-    text-align: center;
-    font-weight: bold;
-    font-size: clamp(3rem, 1vw, 3.5rem);
-    margin: auto;
-  }
+
 
   #home-screen .who-we-are-sec {
     width: 100%;
@@ -711,8 +722,23 @@ width: 65px;
     margin: 24px auto 0;
 }
   
-  #home-screen .ero-sec h1 span{
-    color: var(--BACKGROUND-COLOR);
+  #home-screen .ero-sec .overflow-own{
+    overflow-x: auto;
+    width: 100%;
+  }
+  
+  #home-screen .ero-sec .overflow-own::-webkit-scrollbar{
+    display: none;
+  }
+  
+  #home-screen .ero-sec .overflow-own .where-img-will-flow-flex{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  #home-screen .ero-sec .overflow-own .where-img-will-flow-flex .img-sects{
+    width: 70%;
   }
   
   #home-screen .who-we-are-sec h4{
