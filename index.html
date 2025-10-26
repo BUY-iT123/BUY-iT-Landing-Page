@@ -1,401 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Ray Judah">
-    <meta name="description" content="BUY iT Management">
-    <meta name="keywords" content="HTML, CSS, JavaScript">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/BUY iT Logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="main.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script type="module" src="js folder/BUY iT.js"></script>
-    <title>BUY iT</title>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BUY iT Marketplace</title>
+  <style>
+    /* Basic styling for product cards */
+    #vendor-products {
+      padding: 20px;
+      text-align: center;
+    }
+    #products-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .product-card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .product-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .product-card button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .product-card button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
 
-  <body id="home-screen">
-    <div class="ero-sec">
-      <header>
-        <img src="img/BUY iT Logo.png" alt="BUY iT Logo" width="60" height="60">
+  <section id="vendor-products">
+    <h2>Shop From Our Amazing Vendors</h2>
+    <div id="products-container"></div>
+  </section>
 
-        <nav>
-          <ul>
-            <li id="home">
-              Home
-            </li>
+  <footer>© 2025 BUY iT</footer>
 
-            <li id="about">
-              About
-            </li>
+  <!-- Tabletop.js to fetch Google Sheet data -->
+  <script src="https://cdn.jsdelivr.net/npm/tabletop@1.6.0/tabletop.min.js"></script>
+  <script>
+    window.onload = function() {
+      var publicSpreadsheetUrl = 'YOUR_GOOGLE_SHEET_LINK_HERE'; // Replace with your public Sheet link
 
-            <li id="faq">
-              FAQ
-            </li>
+      Tabletop.init({
+        key: publicSpreadsheetUrl,
+        simpleSheet: true,
+        callback: showProducts
+      });
+    };
 
-            <li id="store">
-              Store
-            </li>
+    function showProducts(data, tabletop) {
+      var container = document.getElementById('products-container');
+      container.innerHTML = ''; // Clear previous content
 
-            <li id="contact">
-              Contact Us
-            </li>
-          </ul>
-        </nav>
+      data.forEach(function(item){
+        var card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+          <img src="${item['Product Image']}" alt="${item['Product Name']}" />
+          <h3>${item['Product Name']}</h3>
+          <p><strong>Price:</strong> ₦${item['Product Price']}</p>
+          <p>${item['Product Description']}</p>
+          <p><strong>Category:</strong> ${item['Product Category']}</p>
+          <p><strong>Location:</strong> ${item['Location']}</p>
+          <a href="https://wa.me/${item['Vendor WhatsApp Contact']}" target="_blank">
+            <button>Contact Vendor</button>
+          </a>
+        `;
+        container.appendChild(card);
+      });
+    }
+  </script>
 
-        <i class="ri-quote-text" id="icon"></i>
-      </header>
-
-      <div class="overflow-own">
-        <div class="where-img-will-flow-flex">
-          <div class="img-sects">
-            <img src="img/Leonardo_Phoenix_10_A_realistic_highquality_landscape_Eid_alAd_3.jpg" alt="Muslim Festival">
-          </div>
-
-          <div class="img-sects">
-            <img src="img/Leonardo_Phoenix_10_Generate_a_very_very_realistic_and_lifelik_1.jpg" alt="Muslim Festival">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- <div class="who-we-are-sec" id="about">
-      <h4>Who we are</h4>
-      <p>At BUY iT, we are transforming the way people buy and sell online. Our mission is simple: to connect sellers and buyers directly ina seamless, efficient, and social marketplace _ all within the trusted environment of WhatsApp.</p>
-    </div> -->
-
-    <!-- <div class="why-you-should-join">
-      <h4>Why sellers should join</h4>
-
-      <div class="reasons">
-        <div class="container">
-          <div class="reasons-give">
-            <h3>Shop Free, Stress-Free</h3>
-
-            <p>No hidden charges, no sign-up fees. Just come in, browse, and shop with ease — everything is open for you.</p>
-          </div>
-          <i class="ri-coin-fill"></i>
-        </div>
-
-        <div class="container">
-          <div class="reasons-give">
-            <h3>Massive Choices, Daily Drops</h3>
-
-            <p>From fashion to phones, we keep adding new products every day so you always find what you need — and even what you didn’t know you needed.</p>
-          </div>
-          <i class="ri-user-follow-fill"></i>
-        </div>
-
-        <div class="container">
-          <div class="reasons-give">
-            <h3>Best Deals, Always Cheap</h3>
-
-            <p>We make sure prices stay low. Looking for affordable stuff? You’re in the right place.</p>
-          </div>
-          <i class="ri-file-list-line"></i>
-        </div>
-
-        <div class="container">
-          <div class="reasons-give">
-            <h3>Exclusive Discounts Just for You</h3>
-
-            <p>Enjoy regular price cuts, special offers, and surprise discounts only available here on Buy iT.</p>
-          </div>
-          <i class="ri-phone-fill"></i>
-        </div>
-
-        <div class="container">
-          <div class="reasons-give">
-            <h3>Fast & Direct Buying</h3>
-
-            <p>Get what you want quickly and directly. No middlemen, no drama — we handle everything for a smooth shopping experience.</p>
-          </div>
-          <i class="ri-flag-fill"></i>
-        </div>
-      </div>
-    </div> -->
-
-    <div class="BUYiT-stats">
-      <h4>Our Stas</h4>
-      <div class="stats">
-        <div class="stat-topic">
-          <h5>Seller</h5>
-          <p>60+</p>
-        </div>
-
-        <div class="stat-topic">
-          <h5>Buyers</h5>
-          <p>100+</p>
-        </div>
-
-        <div class="stat-topic">
-          <h5>Satisfaction</h5>
-          <p>98%</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- <div class="testimonials">
-      <h4>Testimonials</h4>
-
-      <div class="testi">
-        <div class="scrorll-testi">
-          <div class="container-for-testi">
-            <div class="image"></div>
-            <div class="content">
-              <p>
-                Joining BUY iT has been a game-changer for my business! I never thought I could sell directly through WhatsApp, but the platform made it so easy to reach new buyers. The best part is that I can engage with customers personally, and I’ve already seen a boost in my sales. It’s simple, fast, and stress-free. I’m excited to be part of this growing community!
-              </p>
-              <p>-Tolu, Fashion Seller</p>
-            </div>
-          </div>
-
-          <div class="container-for-testi">
-            <div class="image"></div>
-            <div class="content">
-              <p>
-                Joining BUY iT has been a game-changer for my business! I never thought I could sell directly through WhatsApp, but the platform made it so easy to reach new buyers. The best part is that I can engage with customers personally, and I’ve already seen a boost in my sales. It’s simple, fast, and stress-free. I’m excited to be part of this growing community!
-              </p>
-              <p>-Tolu, Fashion Seller</p>
-            </div>
-          </div>
-
-          <div class="container-for-testi">
-            <div class="image"></div>
-            <div class="content">
-              <p>
-                Joining BUY iT has been a game-changer for my business! I never thought I could sell directly through WhatsApp, but the platform made it so easy to reach new buyers. The best part is that I can engage with customers personally, and I’ve already seen a boost in my sales. It’s simple, fast, and stress-free. I’m excited to be part of this growing community!
-              </p>
-              <p>-Tolu, Fashion Seller</p>
-            </div>
-          </div>
-
-          <div class="container-for-testi">
-            <div class="image"></div>
-            <div class="content">
-              <p>
-                Joining BUY iT has been a game-changer for my business! I never thought I could sell directly through WhatsApp, but the platform made it so easy to reach new buyers. The best part is that I can engage with customers personally, and I’ve already seen a boost in my sales. It’s simple, fast, and stress-free. I’m excited to be part of this growing community!
-              </p>
-              <p>-Tolu, Fashion Seller</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- <button class="start-selling">
-      <a href="https://chat.whatsapp.com/LXvDXrOCUYKFkgPs5R3XZv" target="_blank" style="color: white">START SELLING</a>
-    </button> -->
-
-    <div class="sponsored">
-      <h4>HOT PRODUCTS NOW 🔥🔥</h4>
-      <div class="products">
-       
-      </div>
-    </div>
-
-    <button class="more-product">
-      <a href="https://chat.whatsapp.com/LXvDXrOCUYKFkgPs5R3XZv" target="_blank" style="color: white">BROWSE MORE PRODUCT</a>
-    </button>
-
-    <div id="FAQ">
-      <h4>Frequently Asked Questions (FAQ)</h4>
-
-      <div class="ask-nd-answer-question">
-        <div class="qst-centr fir">
-          <div class="question">
-            <p>What is BUY iT?</p>
-            <i class="ri-add-fill" id="icon"></i>
-          </div>
-          <p class="text-one txt">
-            BUY iT is an online platform designed for buyers to quickly and easily connect with us through WhatsApp. We make shopping fast, simple, and enjoyable, ensuring you get the best experience every time.
-          </p>
-        </div>
-
-        <div class="qst-centr sec">
-          <div class="question">
-            <p>How does BUY iT work?</p>
-            <i class="ri-add-fill" id="icon"></i>
-          </div>
-          <p class="text-two txt">
-            Buyers browse products on our landing page and connect directly on WhatsApp for a fast, easy, and completely safe shopping experience.
-          </p>
-        </div>
-
-        <div class="qst-centr thr">
-          <div class="question">
-            <p>Is it free to join BUY iT?</p>
-            <i class="ri-add-fill" id="icon"></i>
-          </div>
-          <p class="text-three txt">
-            Yes! Both sellers and buyers can join for free during this early phase
-          </p>
-        </div>
-
-        <!-- <div class="qst-centr fort">
-          <div class="question">
-            <p>How do I join as a seller?</p>
-            <i class="ri-add-fill" id="icon"></i>
-          </div>
-          <p class="text-four txt">
-            Click the "Start selling" button, and you'll be added to the appropriatee WhatsApp group to start posting your products.
-          </p>
-        </div> -->
-
-        <div class="qst-centr fit">
-          <div class="question">
-            <p>How do I buy something?</p>
-            <i class="ri-add-fill" id="icon"></i>
-          </div>
-          <p class="text-five txt">
-            Browse the product listings. When you find what you like, click it, and you'll be redirected our WhatsApp DM to place your order. It's fast and secure 😊😊.
-          </p>
-        </div>
-
-        <!-- <div class="qst-centr sixt">
-          <div class="question">
-            <p>What kind of products can be listed?</p>
-            <i class="ri-add-fill" id="icon"></i>
-          </div>
-          <p class="text-six txt">
-            We accept legal and safe product product-fashion, food, gadgets, beauty, and more. Product like cars, house, and land are not to be sold on BUY iT. Harmful or fake items are not allowed.
-          </p>
-        </div> -->
-
-        <div class="qst-centr sevn">
-          <div class="question">
-            <p>What hapens if a product is not as described?</p>
-            <i class="ri-add-fill" id="icon"></i>
-          </div>
-          <p class="text-eight txt">
-            Report this matter to us for a time frame of 2 days from when the product was being delivered.
-          </p>
-        </div>
-
-        <div class="qst-centr eith">
-          <div class="question">
-            <p>Can I invite others to join BUY iT?</p>
-            <i class="ri-add-fill" id="icon"></i>
-          </div>
-          <p class="text-nine txt">
-            Yes! You're welcome to invite more buyers using the share link.
-          </p>
-        </div>
-
-        <div class="qst-centr nint">
-          <div class="question">
-            <p>When will the official BUY iT app launch?</p>
-            <i class="ri-add-fill" id="icon"></i>
-          </div>
-          <p class="text-ten txt">
-            We're working on it! Stay active in the community-early members will get special benefits when we go live.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      <img src="img/BUY iT Logo.png" alt="BUY iT" width="60" height="60">
-
-      <div class="opt">
-        <div class="opts">
-          <h4>Quick Navigation</h4>
-          <a href="about.html">About us</a>
-          <a href="https://waw.me/23409121440680">Contact us</a>
-          <a href="#FAQ">FAQ</a>
-        </div>
-
-        <div class="opts">
-          <h4>Privacy Policy</h4>
-          <p id="terms">Terms of Service</p>
-          <p id="privacy"><a href="policy.html">Privacy Policy</a></p>
-        </div>
-
-        <div class="opts">
-          <h4>Contact Information</h4>
-          <p id="contact">Terms of Service</p>
-        </div>
-      </div>
-    </footer>
-    
-    <div class="overlay"></div>
-
-    <div class="show-side">
-      <div class="img-nd-cancel">
-        <img src="img/BUY iT Logo.png" alt="BUY iT logo" width="60" height="60">
-
-        <i class="ri-close-circle-fill"></i>
-      </div>
-
-      <div class="things">
-        <a href="about.html">About</a>
-        <a href="#FAQ">FAQ</a>
-        <p style="display: none;">Store</p>
-        <a href="policy.html">Policy</a>
-        <a href="https://wa.me/23409121440680">Contact us</a>
-      </div>
-    </div>
-
-    <div class="view-product-that-i-want-to-buy">
-      <header>
-        <i class="ri-arrow-left-line"></i>
-        <h4>Product</h4>
-      </header>
-
-      <div class="view-product-img-name-price">
-        <div class="where-img-view-will-be">
-
-        </div>
-
-        <div class="product-price-nd-name">
-          <p id="name">Name</p>
-          <p id="price">Price</p>
-          <p id="ids">Price</p>
-
-        </div>
-      </div>
-
-      <button>Buy Now</button>
-    </div>
-
-<script src="https://cdn.jsdelivr.net/npm/tabletop@1.6.0/tabletop.min.js"></script>
-<script>
-window.onload = function() {
-  var publicSpreadsheetUrl = 'YOUR_GOOGLE_SHEET_LINK_HERE'; // Replace with your public Sheet link
-
-  Tabletop.init({
-    key: publicSpreadsheetUrl,
-    simpleSheet: true,
-    callback: showProducts
-  });
-};
-
-function showProducts(data, tabletop) {
-  var container = document.getElementById('products-container');
-  container.innerHTML = ''; // Clear previous content
-
-  data.forEach(function(item){
-    var card = document.createElement('div');
-    card.className = 'product-card';
-    card.innerHTML = `
-      <img src="${item['Product Image']}" alt="${item['Product Name']}" />
-      <h3>${item['Product Name']}</h3>
-      <p><strong>Price:</strong> ₦${item['Product Price']}</p>
-      <p>${item['Product Description']}</p>
-      <p><strong>Category:</strong> ${item['Product Category']}</p>
-      <p><strong>Location:</strong> ${item['Location']}</p>
-      <a href="https://wa.me/${item['Vendor WhatsApp Contact']}" target="_blank">
-        <button>Contact Vendor</button>
-      </a>
-    `;
-    container.appendChild(card);
-  });
-}
-</script>
-
-    
-  </body>
-
+</body>
 </html>
